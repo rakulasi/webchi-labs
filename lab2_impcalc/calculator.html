@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>calc(01)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Silkscreen&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <button class="menu-icon" aria-label="меню">☰</button>
+    <span class="wordmark">calc(01)</span>
+    <div class="controls">
+      <select class="mode-select" aria-label="режим">
+        <option value="BSC">BSC</option>
+        <option value="SCI">SCI</option>
+      </select>
+      <button class="theme-toggle" aria-label="сменить тему">◐</button>
+    </div>
+  </header>
+
+  <main class="frame">
+    <div class="device">
+      <div id="result" class="result">0</div>
+
+      <div id="sci_panel" class="sci-panel">
+        <div>
+          <button id="btn_op_sqrt" class="my-btn secondary">√</button>
+          <button id="btn_op_square" class="my-btn secondary">x²</button>
+          <button id="btn_op_fact" class="my-btn secondary">x!</button>
+          <button id="btn_op_back" class="my-btn secondary">⌫</button>
+        </div>
+        <div>
+          <button id="btn_digit_000" class="my-btn wide">000</button>
+          <button id="btn_op_rnd" class="my-btn secondary">RND</button>
+          <button id="btn_op_led" class="my-btn secondary">LED</button>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <button id="btn_op_clear" class="my-btn secondary">C</button>
+          <button id="btn_op_sign" class="my-btn secondary">±</button>
+          <button id="btn_op_percent" class="my-btn secondary">%</button>
+          <button id="btn_op_div" class="my-btn primary">÷</button>
+        </div>
+
+        <div>
+          <button id="btn_digit_7" class="my-btn">7</button>
+          <button id="btn_digit_8" class="my-btn">8</button>
+          <button id="btn_digit_9" class="my-btn">9</button>
+          <button id="btn_op_mult" class="my-btn primary">×</button>
+        </div>
+
+        <div>
+          <button id="btn_digit_4" class="my-btn">4</button>
+          <button id="btn_digit_5" class="my-btn">5</button>
+          <button id="btn_digit_6" class="my-btn">6</button>
+          <button id="btn_op_minus" class="my-btn primary">−</button>
+        </div>
+
+        <div>
+          <button id="btn_digit_1" class="my-btn">1</button>
+          <button id="btn_digit_2" class="my-btn">2</button>
+          <button id="btn_digit_3" class="my-btn">3</button>
+          <button id="btn_op_plus" class="my-btn primary">+</button>
+        </div>
+
+        <div>
+          <button id="btn_digit_0" class="my-btn">0</button>
+          <button id="btn_digit_dot" class="my-btn">.</button>
+          <button id="btn_op_equal" class="my-btn primary execute">=</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="info-card">
+    <span class="eyebrow">лр02 · javascript</span>
+    <h2 class="tagline">Tech for every calculation of you</h2>
+    <p class="goal">Цель ЛР: <b>знакомство</b> с инструментами построения интерфейсов - <b>HTML</b>, <b>CSS</b> и <b>JavaScript</b>.</p>
+    <details class="author">
+      <summary>Автор</summary>
+      <p>Рак, группа ИБМ3-54Б</p>
+    </details>
+    <p class="signature">ЛР выполнена - Андреем</p>
+    <a class="github-btn" href="https://github.com/rakulasi/webchi-labs.git">GitHub</a>
+  </footer>
+</body>
+
+</html>
