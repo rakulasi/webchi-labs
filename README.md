@@ -12,6 +12,7 @@
 | `lab3-creperie-tech-cards` | ЛР3. Меню и техкарты на Bootstrap: mock-коллекция, фильтр, копирование и удаление позиций | `lab3-creperie-tech-cards` |
 | `lab4-creperie-vk-chats` | ЛР4. Чаты точки через VK API (XMLHttpRequest), фильтр `filter` | `lab4-creperie-vk-chats` |
 | `lab5-creperie-api` | ЛР5. REST API меню креперии на Node.js (Express): JSON-файл, 5 методов, коллекция Postman | `lab5-creperie-api` |
+| `lab6-creperie-xhr` | ЛР6. Фронтенд ЛР3 на API ЛР5 через XMLHttpRequest, фильтр по названию, лимит, форма позиции | `lab6-creperie-xhr` |
 | `report` | Расчётно-пояснительная записка (общая на все работы) | — |
 
 ## Запуск
@@ -19,4 +20,5 @@
 - ЛР1–2: открыть `calculator.html` в браузере (для ЛР2 — через Live Server).
 - ЛР3–4: `npm install` в папке работы, затем `index.html` через Live Server (модули `type="module"` не работают при открытии файла напрямую).
 - ЛР5: `npm install`, затем `npm run dev` в `lab5-creperie-api` — API на http://localhost:3000/crepes; запросы — `Bilig_OS_crepes.postman_collection.json` (импорт в Postman).
+- ЛР6: запустить API из ЛР5, открыть `lab6-creperie-xhr/index.html` через Live Server в Chrome с расширением CORS Unblock (включить Access-Control-Request-Headers и Overwrite 4xx status codes with 200).
 - ЛР4: скопировать `modules/consts.example.js` в `modules/consts.js` и вписать ключ доступа сообщества (право «сообщения сообщества»). Файл с ключом в репозиторий не попадает. VK API не отдаёт заголовок CORS, поэтому локально нужен браузер с расширением, снимающим CORS-ограничение.
