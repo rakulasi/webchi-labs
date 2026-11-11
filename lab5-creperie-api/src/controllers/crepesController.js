@@ -14,15 +14,20 @@ const pickCrepeFields = (body) => {
 
 const validateCrepe = (crepeData, isNew) => {
     if (isNew) {
-        const missing = ['code', 'title', 'category', 'crepePrice'].filter((field) => crepeData[field] === undefined || crepeData[field] === '');
+        const requiredFields = ['code', 'title', 'category', 'crepePrice'];
+        const missing = requiredFields.filter((field) => {
+            return crepeData[field] === undefined || crepeData[field] === '';
+        });
         if (missing.length > 0) {
             return `Не заполнены поля: ${missing.join(', ')}`;
         }
     }
-    if (crepeData.crepePrice !== undefined && (typeof crepeData.crepePrice !== 'number' || crepeData.crepePrice <= 0)) {
+    const price = crepeData.crepePrice;
+    if (price !== undefined && (typeof price !== 'number' || price <= 0)) {
         return 'crepePrice должна быть положительным числом';
     }
-    if (crepeData.ingredients !== undefined && !Array.isArray(crepeData.ingredients)) {
+    const ingredients = crepeData.ingredients;
+    if (ingredients !== undefined && !Array.isArray(ingredients)) {
         return 'ingredients должен быть массивом';
     }
     return null;
