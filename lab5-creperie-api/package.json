@@ -1,0 +1,20 @@
+{
+  "name": "creperie-api",
+  "version": "1.0.0",
+  "description": "REST API меню креперии Bilig OS",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon --ignore src/data/ src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "type": "commonjs"
+}

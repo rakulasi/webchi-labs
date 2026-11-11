@@ -1,0 +1,239 @@
+{
+  "info": {
+    "name": "Bilig OS — API меню креперии",
+    "description": "REST API позиций меню креперии (crepes): список с фильтрацией, одна позиция, добавление, редактирование, удаление.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "crepeId",
+      "value": "9"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Список позиций меню",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/crepes",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes"
+          ]
+        },
+        "description": "Все позиции меню"
+      },
+      "response": []
+    },
+    {
+      "name": "2. Фильтр по названию",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/crepes?title=креп",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes"
+          ],
+          "query": [
+            {
+              "key": "title",
+              "value": "креп"
+            }
+          ]
+        },
+        "description": "Позиции, в названии которых есть строка"
+      },
+      "response": []
+    },
+    {
+      "name": "3. Фильтр по категории",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/crepes?category=Напитки",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "Напитки"
+            }
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "4. Добавить позицию",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/crepes",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes"
+          ]
+        },
+        "description": "Возвращает 201 и созданную позицию с новым id",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"ТК-023\",\n  \"title\": \"Креп с солёной карамелью\",\n  \"category\": \"Сладкие крепы\",\n  \"photo\": \"assets/crepes/sugar.jpg\",\n  \"crepePrice\": 340,\n  \"packaging\": {\n    \"name\": \"Крафт-уголок\",\n    \"cost\": 7\n  },\n  \"ingredients\": [\n    {\n      \"name\": \"Тесто пшеничное (ТК-002)\",\n      \"net\": 80,\n      \"unit\": \"кг\",\n      \"pricePerKg\": 165,\n      \"loss\": 0\n    },\n    {\n      \"name\": \"Соус солёная карамель\",\n      \"net\": 35,\n      \"unit\": \"кг\",\n      \"pricePerKg\": 1100,\n      \"loss\": 0\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Позиция по id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/crepes/{{crepeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes",
+            "{{crepeId}}"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "6. Изменить цену позиции",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/crepes/{{crepeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes",
+            "{{crepeId}}"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"crepePrice\": 360\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7. Удалить позицию",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/crepes/{{crepeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes",
+            "{{crepeId}}"
+          ]
+        },
+        "description": "Возвращает 204"
+      },
+      "response": []
+    },
+    {
+      "name": "8. Ошибка: позиции нет",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/crepes/999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes",
+            "999"
+          ]
+        },
+        "description": "Возвращает 404"
+      },
+      "response": []
+    },
+    {
+      "name": "9. Ошибка: не все поля",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/crepes",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "crepes"
+          ]
+        },
+        "description": "Возвращает 400",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Без цены\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    }
+  ]
+}
